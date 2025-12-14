@@ -303,31 +303,31 @@ def shampoo():
 
 
 def shampoo_recommendation():
-    if (counter_a > counter_b and counter_a > counter_c):
+    if counter_a > counter_b and counter_a > counter_c:
         messagebox.showinfo("Your ideal shampoo:",
                             "L'Oreal 6 Oil Nourish shampoo"
                             )
-    elif (counter_b > counter_c and counter_b > counter_a):
+    elif counter_b > counter_c and counter_b > counter_a:
         messagebox.showinfo("Your ideal shampoo ",
                             "L'Oreal Hair Spa Nourishing shampoo"
                             )
-    elif (counter_c > counter_a and counter_c > counter_b):
+    elif counter_c > counter_a and counter_c > counter_b:
         messagebox.showinfo("Your ideal shampoo",
                             "Dove Intense Repair shampoo"
                             )
-    elif (counter_a == counter_b):
+    elif counter_a == counter_b:
         messagebox.showinfo("Your ideal shampoo",
                             "L'Oreal Hair Spa Nourishing shampoo"
                             )
-    elif (counter_b == counter_c):
+    elif counter_b == counter_c:
         messagebox.showinfo("Your ideal shampoo",
                             "Dove Intense Repair shampoo"
                             )
-    elif (counter_a == counter_c):
+    elif counter_a == counter_c:
         messagebox.showinfo("Your ideal shampoo",
                             "L'Oreal Hair Spa Nourishing shampoo"
                             )
-    elif (counter_a == counter_b and counter_b == counter_c):
+    elif counter_a == counter_b and counter_b == counter_c:
         messagebox.showinfo("Your ideal shampoo",
                             "L'Oreal Hair Spa Nourishing shampoo"
                             )
@@ -537,30 +537,30 @@ def facewash():
 
 
 def facewash_recommendation():
-    if (counter_a > counter_b and counter_a > counter_c):
+    if counter_a > counter_b and counter_a > counter_c:
         messagebox.showinfo("Your ideal facewash:",
                             "Himalaya Herbal Purifying Neem Face Wash"
                             )
-    elif (counter_b > counter_c and counter_b > counter_a):
+    elif counter_b > counter_c and counter_b > counter_a:
         messagebox.showinfo("Your ideal shampoo ",
                             "Garnier Skin Naturals Light Complete facewash"
                             )
-    elif (counter_c > counter_a and counter_c > counter_b):
+    elif counter_c > counter_a and counter_c > counter_b:
         messagebox.showinfo("Your ideal shampoo",
                             "Biotique Bio Honey Gel facewash")
-    elif (counter_a == counter_b):
+    elif counter_a == counter_b:
         messagebox.showinfo("Your ideal shampoo",
                             "Garnier Skin Naturals Light Complete facewash"
                             )
-    elif (counter_b == counter_c):
+    elif counter_b == counter_c:
         messagebox.showinfo("Your ideal shampoo",
                             "Biotique Bio Honey Gel facewash"
                             )
-    elif (counter_a == counter_c):
+    elif counter_a == counter_c:
         messagebox.showinfo("Your ideal shampoo",
                             "Garnier Skin Naturals Light Complete facewash"
                             )
-    elif (counter_a == counter_b and counter_b == counter_c):
+    elif counter_a == counter_b and counter_b == counter_c:
         messagebox.showinfo("Your ideal shampoo",
                             "Garnier Skin Naturals Light Complete facewash"
                             )
@@ -770,31 +770,31 @@ def soap():
 
 
 def soap_recommendation():
-    if (counter_a > counter_b and counter_a > counter_c):
+    if counter_a > counter_b and counter_a > counter_c:
         messagebox.showinfo("Your ideal soap:",
                             "Dove Cream Beauty Bathing bar"
                             )
-    elif (counter_b > counter_c and counter_b > counter_a):
+    elif counter_b > counter_c and counter_b > counter_a:
         messagebox.showinfo("Your ideal soap:",
                             "Biotique Bio Almond Oil Nourishing soap"
                             )
-    elif (counter_c > counter_a and counter_c > counter_b):
+    elif counter_c > counter_a and counter_c > counter_b:
         messagebox.showinfo("Your ideal soap:",
                             "Pears Pure and Gentle"
                             )
-    elif (counter_a == counter_b):
+    elif counter_a == counter_b:
         messagebox.showinfo("Your ideal soap:",
                             "Biotique Bio Almond Oil Nourishing soap"
                             )
-    elif (counter_b == counter_c):
+    elif counter_b == counter_c:
         messagebox.showinfo("Your ideal soap:",
                             "Pears Pure and Gentle"
                             )
-    elif (counter_a == counter_c):
+    elif counter_a == counter_c:
         messagebox.showinfo("Your ideal soap:",
                             "Biotique Bio Almond Oil Nourishing soap"
                             )
-    elif (counter_a == counter_b and counter_b == counter_c):
+    elif counter_a == counter_b and counter_b == counter_c:
         messagebox.showinfo("Your ideal soap:",
                             "Biotique Bio Almond Oil Nourishing soap"
                             )
@@ -885,19 +885,19 @@ def shirt_men():
 
 
 def shirt_men_recommendation():
-    if (counter_a > counter_b and counter_a > counter_c):
+    if counter_a > counter_b and counter_a > counter_c:
         messagebox.showinfo("Your ideal Shirt:", "Peter England Navy Blue Solid Shirt")
-    elif (counter_b > counter_c and counter_b > counter_a):
+    elif counter_b > counter_c and counter_b > counter_a:
         messagebox.showinfo("Your ideal Shirt:", "GAP Olive Solid Shirt")
-    elif (counter_c > counter_a and counter_c > counter_b):
+    elif counter_c > counter_a and counter_c > counter_b:
         messagebox.showinfo("Your ideal Shirt:", "Peter England Black Solid Shirt")
-    elif (counter_a == counter_b):
+    elif counter_a == counter_b:
         messagebox.showinfo("Your ideal Shirt:", "GAP Olive Solid Shirt")
-    elif (counter_b == counter_c):
+    elif counter_b == counter_c:
         messagebox.showinfo("Your ideal Shirt:", "Peter England Black Solid Shirt")
-    elif (counter_a == counter_c):
+    elif counter_a == counter_c:
         messagebox.showinfo("Your ideal Shirt:", "GAP Olive Solid Shirt")
-    elif (counter_a == counter_b and counter_b == counter_c):
+    elif counter_a == counter_b and counter_b == counter_c:
         messagebox.showinfo("Your ideal Shirt:", "GAP Olive Solid Shirt")
 
 
@@ -965,19 +965,19 @@ def shirt_women():
 
 
 def shirt_women_recommendation():
-    if (counter_a > counter_b and counter_a > counter_c):
+    if counter_a > counter_b and counter_a > counter_c:
         messagebox.showinfo("Your ideal Shirt:", "GAP Blue Fitted Boyfriend Shirt")
-    elif (counter_b > counter_c and counter_b > counter_a):
+    elif counter_b > counter_c and counter_b > counter_a:
         messagebox.showinfo("Your ideal Shirt:", "H&M Olive Solid Shirt")
-    elif (counter_c > counter_a and counter_c > counter_b):
+    elif counter_c > counter_a and counter_c > counter_b:
         messagebox.showinfo("Your ideal Shirt:", "Vero Moda Black Solid Top")
-    elif (counter_a == counter_b):
+    elif counter_a == counter_b:
         messagebox.showinfo("Your ideal Shirt:", "H&M Olive Solid Shirt")
-    elif (counter_b == counter_c):
+    elif counter_b == counter_c:
         messagebox.showinfo("Your ideal Shirt:", "Vero Moda Black Solid Top")
-    elif (counter_a == counter_c):
+    elif counter_a == counter_c:
         messagebox.showinfo("Your ideal Shirt:", "H&M Olive Solid Shirt")
-    elif (counter_a == counter_b and counter_b == counter_c):
+    elif counter_a == counter_b and counter_b == counter_c:
         messagebox.showinfo("Your ideal Shirt:", "H&M Olive Solid Shirt")
 
 
@@ -1046,19 +1046,19 @@ def denims():
 
 
 def denims_recommendation():
-    if (counter_a > counter_b and counter_a > counter_c):
+    if counter_a > counter_b and counter_a > counter_c:
         messagebox.showinfo("Your ideal Jeans:", "Levis Blue Highrise Jeans")
-    elif (counter_b > counter_c and counter_b > counter_a):
+    elif counter_b > counter_c and counter_b > counter_a:
         messagebox.showinfo("Your ideal Jeans:", "H&M White Biker Jeans")
-    elif (counter_c > counter_a and counter_c > counter_b):
+    elif counter_c > counter_a and counter_c > counter_b:
         messagebox.showinfo("Your ideal Jeans:", "Mufti Black Slimfit Jeans")
-    elif (counter_a == counter_b):
+    elif counter_a == counter_b:
         messagebox.showinfo("Your ideal Jeans:", "Tommy Hilfiger Slimfit Jeans")
-    elif (counter_b == counter_c):
+    elif counter_b == counter_c:
         messagebox.showinfo("Your ideal Jeans:", "Calvin Klein Slimfit Jeans")
-    elif (counter_a == counter_c):
+    elif counter_a == counter_c:
         messagebox.showinfo("Your ideal Jeans:", "Tommy Hilfiger Ripped Jeans")
-    elif (counter_a == counter_b and counter_b == counter_c):
+    elif counter_a == counter_b and counter_b == counter_c:
         messagebox.showinfo("Your ideal Jeans:", "H&M distressed Jeans")
 
 
