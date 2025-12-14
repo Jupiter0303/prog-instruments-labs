@@ -22,8 +22,8 @@ def main1():
     va.set(1)
     w = Label(MAIN_WINDOW, text="What do you wish to buy today?")  # ,justify=LEFT
     w.pack(anchor=W)
-    r1 = Radiobutton(MAIN_WINDOW, text='Cosmetics', variable=va, value=1, justify=LEFT, command=Cosmetics)
-    r2 = Radiobutton(MAIN_WINDOW, text='Clothing', variable=va, value=2, justify=LEFT, command=Clothing)
+    r1 = Radiobutton(MAIN_WINDOW, text='Cosmetics', variable=va, value=1, justify=LEFT, command=cosmetics)
+    r2 = Radiobutton(MAIN_WINDOW, text='clothing', variable=va, value=2, justify=LEFT, command=clothing)
     r1.pack()
     r2.pack()
 
@@ -52,28 +52,28 @@ def c3():
     # Function for cosmetics
 
 
-def Cosmetics():
+def cosmetics():
     l1 = Label(MAIN_WINDOW, text="Select desired product", justify=LEFT)
     l1.pack(anchor=W)
     v1 = IntVar()
-    Radiobutton(MAIN_WINDOW, text='Shampoo and Conditioner', variable=v1, value=1, command=Shampoo).pack(anchor=W)
-    Radiobutton(MAIN_WINDOW, text='Face wash', variable=v1, value=2, command=Facewash).pack(anchor=W)
-    Radiobutton(MAIN_WINDOW, text='Soap', variable=v1, value=3, command=Soap).pack(anchor=W)
+    Radiobutton(MAIN_WINDOW, text='shampoo and Conditioner', variable=v1, value=1, command=shampoo).pack(anchor=W)
+    Radiobutton(MAIN_WINDOW, text='Face wash', variable=v1, value=2, command=facewash).pack(anchor=W)
+    Radiobutton(MAIN_WINDOW, text='soap', variable=v1, value=3, command=soap).pack(anchor=W)
 
     # Function for clothing
 
 
-def Clothing():
+def clothing():
     l2 = Label(MAIN_WINDOW, text="Select desired product", justify=LEFT)
     l2.pack(anchor=W)
     v2 = IntVar()
-    Radiobutton(MAIN_WINDOW, text='Shirt for men', variable=v2, value=1, command=Shirt_men).pack(anchor=W)
-    Radiobutton(MAIN_WINDOW, text='Shirt for women', variable=v2, value=2, command=Shirt_women).pack(anchor=W)
-    Radiobutton(MAIN_WINDOW, text='Denim Jeans', variable=v2, value=3, command=Denims).pack(anchor=W)
+    Radiobutton(MAIN_WINDOW, text='Shirt for men', variable=v2, value=1, command=shirt_men).pack(anchor=W)
+    Radiobutton(MAIN_WINDOW, text='Shirt for women', variable=v2, value=2, command=shirt_women).pack(anchor=W)
+    Radiobutton(MAIN_WINDOW, text='Denim Jeans', variable=v2, value=3, command=denims).pack(anchor=W)
 
 
 # Function for shampoo !!!
-def Shampoo():
+def shampoo():
     # 1st
     LA = Label(MAIN_WINDOW, text="Select the most appropriate answer:", justify=LEFT)
     l3 = Label(MAIN_WINDOW, text="1. What type of hair do u have?", justify=LEFT)
@@ -131,29 +131,29 @@ def Shampoo():
     Radiobutton(MAIN_WINDOW, text='Few', variable=v9, value=2, command=c2).pack(anchor=W)
     Radiobutton(MAIN_WINDOW, text='Plenty', variable=v9, value=3, command=c3).pack(anchor=W)
 
-    Button(MAIN_WINDOW, text="Submit", width=10, height=1, bg="white", command=Shampoo_pro).place(x=300, y=700)
-    Button(MAIN_WINDOW, text="Buy", width=10, height=1, bg="white", command=Buy).place(x=400, y=700)
+    Button(MAIN_WINDOW, text="Submit", width=10, height=1, bg="white", command=shampoo_pro).place(x=300, y=700)
+    Button(MAIN_WINDOW, text="buy", width=10, height=1, bg="white", command=buy).place(x=400, y=700)
 
 
-def Shampoo_pro():
+def shampoo_pro():
     if (a > b and a > c):
-        messagebox.showinfo("Your ideal Shampoo:", "L'Oreal 6 Oil Nourish Shampoo")
+        messagebox.showinfo("Your ideal shampoo:", "L'Oreal 6 Oil Nourish shampoo")
     elif (b > c and b > a):
-        messagebox.showinfo("Your ideal shampoo ", "L'Oreal Hair Spa Nourishing Shampoo")
+        messagebox.showinfo("Your ideal shampoo ", "L'Oreal Hair Spa Nourishing shampoo")
     elif (c > a and c > b):
-        messagebox.showinfo("Your ideal shampoo", "Dove Intense Repair Shampoo")
+        messagebox.showinfo("Your ideal shampoo", "Dove Intense Repair shampoo")
     elif (a == b):
-        messagebox.showinfo("Your ideal shampoo", "L'Oreal Hair Spa Nourishing Shampoo")
+        messagebox.showinfo("Your ideal shampoo", "L'Oreal Hair Spa Nourishing shampoo")
     elif (b == c):
-        messagebox.showinfo("Your ideal shampoo", "Dove Intense Repair Shampoo")
+        messagebox.showinfo("Your ideal shampoo", "Dove Intense Repair shampoo")
     elif (a == c):
-        messagebox.showinfo("Your ideal shampoo", "L'Oreal Hair Spa Nourishing Shampoo")
+        messagebox.showinfo("Your ideal shampoo", "L'Oreal Hair Spa Nourishing shampoo")
     elif (a == b and b == c):
-        messagebox.showinfo("Your ideal shampoo", "L'Oreal Hair Spa Nourishing Shampoo")
+        messagebox.showinfo("Your ideal shampoo", "L'Oreal Hair Spa Nourishing shampoo")
 
 
 # Function for facewash !!!
-def Facewash():
+def facewash():
     # 1st
     LA = Label(MAIN_WINDOW, text="Select the most appropriate answer:", justify=LEFT)
     l3 = Label(MAIN_WINDOW, text="1. What type of skin do u have?", justify=LEFT)
@@ -212,29 +212,29 @@ def Facewash():
     Radiobutton(MAIN_WINDOW, text='Sometimes', variable=v9, value=2, command=c2).pack(anchor=W)
     Radiobutton(MAIN_WINDOW, text='All the time', variable=v9, value=3, command=c3).pack(anchor=W)
 
-    Button(MAIN_WINDOW, text="Submit", width=10, height=1, bg="white", command=Facewash_pro).place(x=300, y=700)
-    Button(MAIN_WINDOW, text="Buy", width=10, height=1, bg="white", command=Buy).place(x=400, y=700)
+    Button(MAIN_WINDOW, text="Submit", width=10, height=1, bg="white", command=facewash_pro).place(x=300, y=700)
+    Button(MAIN_WINDOW, text="buy", width=10, height=1, bg="white", command=buy).place(x=400, y=700)
 
 
-def Facewash_pro():
+def facewash_pro():
     if (a > b and a > c):
-        messagebox.showinfo("Your ideal Facewash:", "Himalaya Herbal Purifying Neem Face Wash")
+        messagebox.showinfo("Your ideal facewash:", "Himalaya Herbal Purifying Neem Face Wash")
     elif (b > c and b > a):
-        messagebox.showinfo("Your ideal shampoo ", "Garnier Skin Naturals Light Complete Facewash")
+        messagebox.showinfo("Your ideal shampoo ", "Garnier Skin Naturals Light Complete facewash")
     elif (c > a and c > b):
-        messagebox.showinfo("Your ideal shampoo", "Biotique Bio Honey Gel Facewash")
+        messagebox.showinfo("Your ideal shampoo", "Biotique Bio Honey Gel facewash")
     elif (a == b):
-        messagebox.showinfo("Your ideal shampoo", "Garnier Skin Naturals Light Complete Facewash")
+        messagebox.showinfo("Your ideal shampoo", "Garnier Skin Naturals Light Complete facewash")
     elif (b == c):
-        messagebox.showinfo("Your ideal shampoo", "Biotique Bio Honey Gel Facewash")
+        messagebox.showinfo("Your ideal shampoo", "Biotique Bio Honey Gel facewash")
     elif (a == c):
-        messagebox.showinfo("Your ideal shampoo", "Garnier Skin Naturals Light Complete Facewash")
+        messagebox.showinfo("Your ideal shampoo", "Garnier Skin Naturals Light Complete facewash")
     elif (a == b and b == c):
-        messagebox.showinfo("Your ideal shampoo", "Garnier Skin Naturals Light Complete Facewash")
+        messagebox.showinfo("Your ideal shampoo", "Garnier Skin Naturals Light Complete facewash")
 
 
 # Function for soap !!!
-def Soap():
+def soap():
     # 1st
     LA = Label(MAIN_WINDOW, text="Select the most appropriate answer:", justify=LEFT)
     l3 = Label(MAIN_WINDOW, text="1. What type of skin you have?", justify=LEFT)
@@ -292,29 +292,29 @@ def Soap():
     Radiobutton(MAIN_WINDOW, text='Only fragrance', variable=v9, value=2, command=c2).pack(anchor=W)
     Radiobutton(MAIN_WINDOW, text='No', variable=v9, value=3, command=c3).pack(anchor=W)
 
-    Button(MAIN_WINDOW, text="Submit", width=10, height=1, bg="white", command=Soap_pro).place(x=300, y=700)
-    Button(MAIN_WINDOW, text="Buy", width=10, height=1, bg="white", command=Buy).place(x=400, y=700)
+    Button(MAIN_WINDOW, text="Submit", width=10, height=1, bg="white", command=soap_pro).place(x=300, y=700)
+    Button(MAIN_WINDOW, text="buy", width=10, height=1, bg="white", command=buy).place(x=400, y=700)
 
 
-def Soap_pro():
+def soap_pro():
     if (a > b and a > c):
-        messagebox.showinfo("Your ideal Soap:", "Dove Cream Beauty Bathing bar")
+        messagebox.showinfo("Your ideal soap:", "Dove Cream Beauty Bathing bar")
     elif (b > c and b > a):
-        messagebox.showinfo("Your ideal Soap:", "Biotique Bio Almond Oil Nourishing Soap")
+        messagebox.showinfo("Your ideal soap:", "Biotique Bio Almond Oil Nourishing soap")
     elif (c > a and c > b):
-        messagebox.showinfo("Your ideal Soap:", "Pears Pure and Gentle")
+        messagebox.showinfo("Your ideal soap:", "Pears Pure and Gentle")
     elif (a == b):
-        messagebox.showinfo("Your ideal Soap:", "Biotique Bio Almond Oil Nourishing Soap")
+        messagebox.showinfo("Your ideal soap:", "Biotique Bio Almond Oil Nourishing soap")
     elif (b == c):
-        messagebox.showinfo("Your ideal Soap:", "Pears Pure and Gentle")
+        messagebox.showinfo("Your ideal soap:", "Pears Pure and Gentle")
     elif (a == c):
-        messagebox.showinfo("Your ideal Soap:", "Biotique Bio Almond Oil Nourishing Soap")
+        messagebox.showinfo("Your ideal soap:", "Biotique Bio Almond Oil Nourishing soap")
     elif (a == b and b == c):
-        messagebox.showinfo("Your ideal Soap:", "Biotique Bio Almond Oil Nourishing Soap")
+        messagebox.showinfo("Your ideal soap:", "Biotique Bio Almond Oil Nourishing soap")
 
 
 # Function for shirt (men) !!!
-def Shirt_men():
+def shirt_men():
     # 1st
     LA = Label(MAIN_WINDOW, text="Select the most appropriate answer:", justify=LEFT)
     l3 = Label(MAIN_WINDOW, text="1. What is your size?", justify=LEFT)
@@ -372,11 +372,11 @@ def Shirt_men():
     Radiobutton(MAIN_WINDOW, text='Party wear', variable=v9, value=2, command=c2).pack(anchor=W)
     Radiobutton(MAIN_WINDOW, text='Social gathering', variable=v9, value=3, command=c3).pack(anchor=W)
 
-    Button(MAIN_WINDOW, text="Submit", width=10, height=1, bg="white", command=Shirt_Men_pro).place(x=300, y=700)
-    Button(MAIN_WINDOW, text="Buy", width=10, height=1, bg="white", command=Buy).place(x=400, y=700)
+    Button(MAIN_WINDOW, text="Submit", width=10, height=1, bg="white", command=shirt_men_pro).place(x=300, y=700)
+    Button(MAIN_WINDOW, text="buy", width=10, height=1, bg="white", command=buy).place(x=400, y=700)
 
 
-def Shirt_Men_pro():
+def shirt_men_pro():
     if (a > b and a > c):
         messagebox.showinfo("Your ideal Shirt:", "Peter England Navy Blue Solid Shirt")
     elif (b > c and b > a):
@@ -394,7 +394,7 @@ def Shirt_Men_pro():
 
 
 # Function for shirt (women) !!!
-def Shirt_women():
+def shirt_women():
     # 1st
     LA = Label(MAIN_WINDOW, text="Select the most appropriate answer:", justify=LEFT)
     l3 = Label(MAIN_WINDOW, text="1. What is your size?", justify=LEFT)
@@ -452,11 +452,11 @@ def Shirt_women():
     Radiobutton(MAIN_WINDOW, text='Party wear', variable=v9, value=2, command=c2).pack(anchor=W)
     Radiobutton(MAIN_WINDOW, text='Social gathering', variable=v9, value=3, command=c3).pack(anchor=W)
 
-    Button(MAIN_WINDOW, text="Submit", width=10, height=1, bg="white", command=Shirt_Women_pro).place(x=300, y=700)
-    Button(MAIN_WINDOW, text="Buy", width=10, height=1, bg="white", command=Buy).place(x=400, y=700)
+    Button(MAIN_WINDOW, text="Submit", width=10, height=1, bg="white", command=shirt_women_pro).place(x=300, y=700)
+    Button(MAIN_WINDOW, text="buy", width=10, height=1, bg="white", command=buy).place(x=400, y=700)
 
 
-def Shirt_Women_pro():
+def shirt_women_pro():
     if (a > b and a > c):
         messagebox.showinfo("Your ideal Shirt:", "GAP Blue Fitted Boyfriend Shirt")
     elif (b > c and b > a):
@@ -474,7 +474,7 @@ def Shirt_Women_pro():
 
 
 # Function for denims !!!
-def Denims():
+def denims():
     # 1st
     LA = Label(MAIN_WINDOW, text="Select the most appropriate answer:", justify=LEFT)
     l3 = Label(MAIN_WINDOW, text="1. What is your size?", justify=LEFT)
@@ -533,11 +533,11 @@ def Denims():
     Radiobutton(MAIN_WINDOW, text='Mufti', variable=v9, value=2, command=c2).pack(anchor=W)
     Radiobutton(MAIN_WINDOW, text='H&M', variable=v9, value=3, command=c3).pack(anchor=W)
 
-    Button(MAIN_WINDOW, text="Submit", width=10, height=1, bg="white", command=Denims_pro).place(x=300, y=700)
-    Button(MAIN_WINDOW, text="Buy", width=10, height=1, bg="white", command=Buy).place(x=400, y=700)
+    Button(MAIN_WINDOW, text="Submit", width=10, height=1, bg="white", command=denims_pro).place(x=300, y=700)
+    Button(MAIN_WINDOW, text="buy", width=10, height=1, bg="white", command=buy).place(x=400, y=700)
 
 
-def Denims_pro():
+def denims_pro():
     if (a > b and a > c):
         messagebox.showinfo("Your ideal Jeans:", "Levis Blue Highrise Jeans")
     elif (b > c and b > a):
@@ -554,7 +554,7 @@ def Denims_pro():
         messagebox.showinfo("Your ideal Jeans:", "H&M distressed Jeans")
 
 
-def Buy():
+def buy():
     print("Visit this link to buy your product: https://www.amazon.in/")
 
 
