@@ -1,7 +1,16 @@
 import tkinter as tk
-from tkinter import *
-from tkinter import messagebox
-from tkinter import ttk
+from tkinter import (Tk,
+                     Label,
+                     Button,
+                     Radiobutton,
+                     Entry,
+                     StringVar,
+                     IntVar,
+                     messagebox
+                     )
+
+import tkinter.ttk as ttk
+
 
 
 def main1():
