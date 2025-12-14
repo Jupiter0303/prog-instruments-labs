@@ -11,6 +11,9 @@ from tkinter import (Tk,
 
 import tkinter.ttk as ttk
 
+counter_a = 0
+counter_b = 0
+counter_c = 0
 
 
 def main1():
@@ -44,11 +47,6 @@ def main1():
     r2.pack()
 
     MAIN_WINDOW.mainloop()
-
-
-counter_a = 0
-counter_b = 0
-counter_c = 0
 
 
 def increment_a():
