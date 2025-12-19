@@ -1,0 +1,163 @@
+import argparse
+
+from log_config import setup_logging
+from asymmetric import Asymmetric
+from config import (
+    DECRYPTED_FILE,
+    ENCRYPTED_FILE,
+    INITIAL_FILE,
+    PRIVATE_PEM,
+    SYMMETRIC_KEY
+)
+from fileOrganization import (
+    check_file_not_empty,
+    deserialization_private_key,
+    load_bytes_from_file,
+    read_txt_file,
+    save_bytes_to_file,
+    serialization_private_key,
+    serialization_public_key,
+    write_file_txt
+)
+from symmetric import Symmetric
+
+logger = setup_logging()
+
+
+def generate_keys() -> bool:
+    """
+    Сюжет генерации ключей гибридной системы и шифрования симметричного ключа
+    :arg: None
+    :return: bool - корректность выполнения
+    """
+    logger.info("Начало генерации ключей")
+    try:
+        sym_key = Symmetric.generate_key()
+        logger.info("Сгенерирован симметричный ключ")
+
+        private_key, public_ley = Asymmetric.generate_keys()
+        logger.info("Сгенерированы асимметричные ключи")
+
+        serialization_public_key(public_ley)
+        serialization_private_key(private_key)
+        logger.info("Сериализованы публичный и приватный ключи")
+
+        cipher_sym_key = Asymmetric.encrypt_bytes(sym_key, public_ley)
+        save_bytes_to_file(cipher_sym_key, SYMMETRIC_KEY)
+        logger.info("Зашифрован и сохранен симметричный ключ")
+
+        logger.info("Конец генерации ключей")
+        return True
+
+    except Exception as ex:
+        logger.error(f"Ошибка при генерации ключей: {ex}")
+        return False
+
+
+def encrypt_data() -> bool:
+    """
+    Сюжет шифрования данных симметричным шифрованием
+    :return: bool - корректность выполнения
+    """
+    logger.info("Запуск шифрования данных")
+    try:
+        if not (check_file_not_empty(SYMMETRIC_KEY)
+                 and check_file_not_empty(PRIVATE_PEM)):
+            logger.warning("При шифровании были найдены пустые файлы ключей")
+            return False
+
+        private_key = deserialization_private_key()
+        logger.info("Приватный ключ был десериализован")
+
+        original_sym_key = Asymmetric.decrypt(
+            load_bytes_from_file(SYMMETRIC_KEY),
+            private_key
+        )
+        logger.info("Симметричный ключ был извлечен и дешифрован")
+
+        original_data = read_txt_file(INITIAL_FILE)
+        logger.info("Исходный текст считан")
+
+        c_data_bytes = Symmetric.encrypt(original_data, original_sym_key)
+        logger.info("Исходный текст зашифрован симметричным алгоритмом ")
+
+        save_bytes_to_file(c_data_bytes, ENCRYPTED_FILE)
+        logger.info("Конец шифрования данных")
+
+        return True
+
+    except Exception as ex:
+        logger.error(f"Ошибка при шифровании данных: {ex}")
+        return False
+
+
+def decrypt_data():
+    """
+    Сюжет дешифрования шифротекста
+    :return: bool - корректность выполнения
+    """
+    logger.info("Запуск дешифрования данных")
+    try:
+        if not check_file_not_empty(ENCRYPTED_FILE):
+            logger.warning("Файл с зашифрованными данными пустой")
+            return False
+
+        private_key = deserialization_private_key()
+        logger.info("Приватный ключ был десериализован")
+
+        original_sym_key = Asymmetric.decrypt(
+            load_bytes_from_file(SYMMETRIC_KEY),
+            private_key
+            )
+        logger.info("Симметричный ключ был извлечен и дешифрован")
+
+        c_data_bytes = load_bytes_from_file(ENCRYPTED_FILE)
+        original_data_bytes = Symmetric.decrypt(c_data_bytes, original_sym_key)
+        original_data = original_data_bytes.decode('utf-8')
+        logger.info("Зашифрованный байты были извлечены и конвертированы в текст")
+
+        write_file_txt(original_data, DECRYPTED_FILE)
+        logger.info("Данные были записаны в файл с дешифрованным текстом")
+
+        logger.info("Конец дешифрования данных")
+
+    except Exception as ex:
+        logger.error(f"Ошибка при дешифровании данных: {ex}")
+        return False
+
+    return True
+
+
+def main():
+    """
+    Главная функция программы. Реализует парсинг аргументов командной строки,
+     на основе которых запускает тот или иной сюжет гибридного шифрования
+    :return:
+    """
+    parser = argparse.ArgumentParser()
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument('-gen', '--generation', help='Запуск режима генерации ключей', action='store_true')
+    group.add_argument('-enc', '--encryption', help='Запуск режима шифрования', action='store_true')
+    group.add_argument('-dec', '--decryption', help='Запуск режима дешифрования', action='store_true')
+
+    args = parser.parse_args()
+    status = False
+    if args.generation:
+        status = generate_keys()
+    elif args.encryption:
+        status = encrypt_data()
+    elif args.decryption:
+        status = decrypt_data()
+    else:
+        logger.error("Была выбрана неизвестная операция")
+
+    if status:
+        logger.info("Операция успешно завершилась")
+    else:
+        logger.error("Операция завершилась с ошибкой")
+
+    return 0
+
+
+if __name__ == '__main__':
+    main()
