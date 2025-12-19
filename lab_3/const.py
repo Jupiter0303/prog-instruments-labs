@@ -4,7 +4,7 @@ CSV_DELIMITER  = ";"
 
 PATTERNS = {
     "telephone": r"^\+7-\(\d{3}\)-\d{3}-\d{2}-\d{2}$",
-    "http_status_message": r"^\d{3} [A-Z][a-z]+(?: [A-Z][a-z]+)*$",
+    "http_status_message": r"^\d{3}\s[A-Z][a-zA-Z\s]*$",
     "snils": r"^\d{11}$",
     "identifier": r"^\d{2}-\d{2}/\d{2}$",
     "ip_v4": r"^(?:(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(?:25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$",
