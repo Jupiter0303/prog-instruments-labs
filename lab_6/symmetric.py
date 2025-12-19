@@ -19,7 +19,7 @@ class Symmetric:
             cipher = Cipher(algorithms.IDEA(key), modes.CBC(iv))
             encryptor = cipher.encryptor()
 
-            padder = padding.ANSIX923(16).padder()
+            padder = padding.ANSIX923(64).padder()
             text = bytes( original_text, 'UTF-8')
             padded_text = padder.update(text) + padder.finalize()
             logger.debug(f"Добавлен padding, размер данных: {len(padded_text)} байт")
