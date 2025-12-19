@@ -1,4 +1,4 @@
-import pytest
+﻿import pytest
 from unittest.mock import Mock, patch
 import tempfile
 import os
@@ -7,12 +7,14 @@ from symmetric import Symmetric
 from asymmetric import Asymmetric
 from fileOrganization import save_bytes_to_file, load_bytes_from_file
 
+
 # Тест 1: Проверка уникальности ключей
 def test_key_uniqueness():
     key1 = Symmetric.generate_key()
     key2 = Symmetric.generate_key()
     assert key1 != key2
     assert len({key1, key2}) == 2
+
 
 # Тест 2: Разные результаты при повторном шифровании
 def test_encryption_produces_different_output():
@@ -25,6 +27,7 @@ def test_encryption_produces_different_output():
     assert result1 != result2
     assert len(result1) == len(result2)
 
+
 # Тест 3: RSA работает с разными данными
 def test_rsa_encryption_with_different_inputs():
     private, public = Asymmetric.generate_keys()
@@ -36,6 +39,7 @@ def test_rsa_encryption_with_different_inputs():
         assert decrypted == data
 
     assert len({Asymmetric.encrypt_bytes(data, public) for data in inputs}) == len(inputs)
+
 
 # Тест 4: Файлы сохраняются корректно
 def test_file_operations_with_random_data():
@@ -56,6 +60,7 @@ def test_file_operations_with_random_data():
 
     os.unlink(path)
 
+
 # Тест 5: Работа с пустыми строками
 def test_empty_and_whitespace_strings():
     key = Symmetric.generate_key()
@@ -66,13 +71,14 @@ def test_empty_and_whitespace_strings():
         decrypted = Symmetric.decrypt(encrypted, key)
         assert decrypted.decode() == text
 
+
 # Тест 6: Параметризованный тест длин - проверка граничных случаев
 @pytest.mark.parametrize("text,description", [
-    ("A", "single_char"),                      # Минимальная длина
-    ("AB", "two_chars"),                       # Нечетная длина
-    ("ABCD", "four_chars"),                    # Кратна 2, но не 8
-    ("ABCDEFGH", "eight_chars"),               # Половина блока шифрования
-    ("ABCDEFGHIJKLMNOP", "sixteen_chars"),     # Ровно один блок (16 символов = ~16 байт)
+    ("A", "single_char"),  # Минимальная длина
+    ("AB", "two_chars"),  # Нечетная длина
+    ("ABCD", "four_chars"),  # Кратна 2, но не 8
+    ("ABCDEFGH", "eight_chars"),  # Половина блока шифрования
+    ("ABCDEFGHIJKLMNOP", "sixteen_chars"),  # Ровно один блок (16 символов = ~16 байт)
 ])
 def test_encryption_with_different_lengths(text, description):
     key = Symmetric.generate_key()
@@ -83,6 +89,7 @@ def test_encryption_with_different_lengths(text, description):
     assert decrypted.decode() == text
     # Проверяем, что шифрование добавляет данные (IV + padding)
     assert len(encrypted) >= len(text)
+
 
 # Тест 7: Mock для логгера - проверка побочных эффектов
 def test_logging_behavior_with_mock():
