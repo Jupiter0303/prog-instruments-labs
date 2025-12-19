@@ -65,3 +65,42 @@ def test_empty_and_whitespace_strings():
         encrypted = Symmetric.encrypt(text, key)
         decrypted = Symmetric.decrypt(encrypted, key)
         assert decrypted.decode() == text
+
+# Тест 6: Параметризованный тест длин - проверка граничных случаев
+@pytest.mark.parametrize("text,description", [
+    ("A", "single_char"),                      # Минимальная длина
+    ("AB", "two_chars"),                       # Нечетная длина
+    ("ABCD", "four_chars"),                    # Кратна 2, но не 8
+    ("ABCDEFGH", "eight_chars"),               # Половина блока шифрования
+    ("ABCDEFGHIJKLMNOP", "sixteen_chars"),     # Ровно один блок (16 символов = ~16 байт)
+])
+def test_encryption_with_different_lengths(text, description):
+    key = Symmetric.generate_key()
+    encrypted = Symmetric.encrypt(text, key)
+    decrypted = Symmetric.decrypt(encrypted, key)
+
+    # Проверяем, что данные не теряются
+    assert decrypted.decode() == text
+    # Проверяем, что шифрование добавляет данные (IV + padding)
+    assert len(encrypted) >= len(text)
+
+# Тест 7: Mock для логгера - проверка побочных эффектов
+def test_logging_behavior_with_mock():
+    """
+        Проверяем, что функция шифрования корректно логирует свои действия.
+        Используется mock для изоляции теста от файловой системы.
+    """
+    # используем фейковый логгер, имитирующий реальный
+    mock_logger = Mock()
+    mock_logger.info = Mock()
+    mock_logger.debug = Mock()
+
+    with patch('symmetric.logger', mock_logger):
+        key = b'\x00' * 16
+        result = Symmetric.encrypt("test", key)
+
+        assert mock_logger.info.call_count >= 1
+        assert mock_logger.debug.call_count >= 1
+
+        info_calls = [str(call) for call in mock_logger.info.call_args_list]
+        assert any("зашифрован" in call.lower() for call in info_calls)
