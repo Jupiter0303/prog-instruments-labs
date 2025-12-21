@@ -1,4 +1,3 @@
-import tkinter as tk
 from tkinter import (Tk,
                      Label,
                      Button,
@@ -8,8 +7,6 @@ from tkinter import (Tk,
                      IntVar,
                      messagebox
                      )
-
-import tkinter.ttk as ttk
 
 counter_a = 0
 counter_b = 0
